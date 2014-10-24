@@ -7,6 +7,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  # GET /posts
+  # GET /posts.json
+  def index_hashtags
+    @hashtag = SimpleHashtag::Hashtag.find_by_name(params[:hashtag])
+    @posts = @hashtag.hashtaggables if @hashtag
+    render "posts/index"
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show

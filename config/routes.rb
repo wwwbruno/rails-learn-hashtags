@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get "posts/hashtags/:hashtag", to: "posts#index_hashtags", as: :hashtag
+
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
